@@ -37,8 +37,10 @@ onIonViewWillLeave(() =>
 <template>
     <ion-page>
         <app-header :title="title" />
-        <ion-content :fullscreen="true">
-            About
+        <ion-content :fullscreen="true" color="light">
+            <div class="tw-m-1">
+                About
+            </div>
         </ion-content>
     </ion-page>
 </template>

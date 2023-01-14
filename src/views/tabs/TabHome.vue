@@ -38,11 +38,13 @@ onIonViewWillLeave(() =>
     <ion-page>
         <app-header :title="title" />
         <ion-content :fullscreen="true" color="light">
-            <p v-for="(item, index) in 1000" :key="index" class="tw-p-2">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste repellat nesciunt, tempore placeat
-                impedit fuga
-                adipisci possimus atque optio neque perspiciatis magni quod, saepe aliquid aut iure ea nisi odio.
-            </p>
+            <div class="tw-m-1">
+                <p v-for="(item, index) in 100" :key="index" class="tw-mb-1">
+                    {{ item }}. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste repellat nesciunt, tempore placeat
+                    impedit fuga
+                    adipisci possimus atque optio neque perspiciatis magni quod, saepe aliquid aut iure ea nisi odio.
+                </p>
+            </div>
         </ion-content>
     </ion-page>
 </template>

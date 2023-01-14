@@ -17,7 +17,7 @@ const afterTabChange = () =>
 <template>
     <ion-page>
         <ion-row class="ion-justify-content-center">
-            <ion-col size-xs="12" size-sm="12" size-xl="3" size-lg="5" class="tw-h-screen">
+            <ion-col size-xs="12" size-sm="8" size-xl="4" size-lg="5" class="tw-h-screen">
                 <ion-tabs @ionTabsWillChange="beforeTabChange" @ionTabsDidChange="afterTabChange">
                     <ion-router-outlet></ion-router-outlet>
                     <ion-tab-bar slot="bottom">
