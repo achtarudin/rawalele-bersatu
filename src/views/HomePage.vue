@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonGrid, IonRow, IonCol } from "@ionic/vue";
+import { IonRow, IonCol } from "@ionic/vue";
 import { IonContent, IonHeader, IonPage } from "@ionic/vue";
 import { IonToolbar, IonTitle, IonButtons, IonButton, IonIcon } from "@ionic/vue";
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from "@ionic/vue";

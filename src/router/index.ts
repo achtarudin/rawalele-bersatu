@@ -1,10 +1,17 @@
 import { createRouter, createWebHistory } from "@ionic/vue-router";
 import { RouteRecordRaw } from "vue-router";
+
+import { appsOutline, peopleOutline, calendarOutline } from 'ionicons/icons';
+
+
 import HomePage from "@/views/HomePage.vue";
+
 import TabApp from "@/views/TabApp.vue";
-import TabHome from "@/views/tabs/TabHome.vue";
-import TabAbout from "@/views/tabs/TabAbout.vue";
-import TabEvent from "@/views/tabs/TabEvent.vue";
+import TabMember from "@/views/tabs/TabMember.vue";
+import TabSchedule from "@/views/tabs/TabSchedule.vue";
+import TabDashboard from "@/views/tabs/TabDashboard.vue";
+
+import DetailPage from "@/views/DetailPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -20,27 +27,47 @@ const routes: Array<RouteRecordRaw> = [
     path: "/tabs",
     name: "BottomNav",
     component: TabApp,
-    redirect: "/tabs/home",
+    redirect: "/tabs/dashboard",
+    meta: { bottomNav: true },
     children: [
       {
-        path: "home",
-        name: "TabHome",
-        component: TabHome,
-        meta: { pageName: "Home" }
+        path: "dashboard",
+        name: "Dashboard",
+        component: TabDashboard,
+        meta: { pageName: "Dashboard", icon: appsOutline },
+        children: [
+          {
+            path: "income",
+            name: "IncomeDetail",
+            component: DetailPage
+          }
+        ]
       },
       {
-        path: "about",
-        name: "TabAbout",
-        component: TabAbout,
-        meta: { pageName: "About" }
+        path: "member",
+        name: "Member",
+        component: TabMember,
+        meta: { pageName: "Anggota", icon: peopleOutline }
       },
       {
-        path: "event",
-        name: "TabEvent",
-        component: TabEvent,
-        meta: { pageName: "Event" }
+        path: "schedule",
+        name: "Schedule",
+        component: TabSchedule,
+        meta: { pageName: "Jadwal", icon: calendarOutline }
       }
     ]
+  },
+  {
+    path: "/dashboard/income",
+    name: "DashboardIncome",
+    component: DetailPage,
+    meta: { pageName: "Pemasukan" }
+  },
+  {
+    path: "/dashboard/outcome",
+    name: "DashboardOutcome",
+    component: DetailPage,
+    meta: { pageName: "Pengeluaran" }
   }
 ];
 

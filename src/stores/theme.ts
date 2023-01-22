@@ -1,20 +1,35 @@
-import { reactive, toRef } from "vue";
+import { reactive } from "vue";
 
 const state = reactive({
   dark: false,
   light: false
 });
 
-const setTheme = (value: boolean) => {
+const setTheme = (valueTheme?: boolean | undefined | null) => {
+  const defaultTheme = localStorage.getItem("theme-is-dark") ?? null;
+
+  let value;
+
+  if (!!defaultTheme === valueTheme) {
+    value = !!defaultTheme;
+  } else {
+    value = valueTheme;
+  }
+
+  
+
   if (value == true) {
     state.dark = true;
     state.light = false;
-  }
-  if (value == false) {
+    document.body.classList.add("dark");
+  } else {
     state.dark = false;
     state.light = true;
+    document.body.classList.remove("dark");
   }
 
+
+  localStorage.setItem("theme-is-dark", state.dark ? "1" : "0");
 };
 
 const useTheme = () => {

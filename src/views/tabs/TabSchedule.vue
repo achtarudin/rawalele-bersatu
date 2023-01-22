@@ -16,22 +16,22 @@ const title = computed(() => route.meta.pageName as string)
 
 onIonViewDidEnter(() =>
 {
-    console.log('Home page did enter home');
+    console.log('Home page did enter schedule');
 });
 
 onIonViewDidLeave(() =>
 {
-    console.log('Home page did leave  home');
+    console.log('Home page did leave  schedule');
 });
 
 onIonViewWillEnter(() =>
 {
-    console.log('Home page will enter  home');
+    console.log('Home page will enter  schedule');
 });
 
 onIonViewWillLeave(() =>
 {
-    console.log('Home page will leave  home');
+    console.log('Home page will leave  schedule');
 });
 </script>
 <template>
