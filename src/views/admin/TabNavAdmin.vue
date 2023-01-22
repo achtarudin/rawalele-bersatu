@@ -33,9 +33,9 @@ const afterTabChange = () =>
                 <ion-tabs @ionTabsWillChange="beforeTabChange" @ionTabsDidChange="afterTabChange"
                     v-if="routeBottomNavs.length == 1">
                     <ion-router-outlet></ion-router-outlet>
-                    <ion-tab-bar slot="bottom">
+                    <ion-tab-bar slot="bottom" >  
                         <ion-tab-button v-for="(routeBottomNav, index) in routeBottomNavs[0].children ?? []"
-                            :key="index" :tab="(routeBottomNav.name as string)"
+                            :key="index" :tab="(routeBottomNav.name as string)" color="success"
                             :class="{ 'tw-text-green-500': routeBottomNav.meta?.pageName == router.currentRoute.value.meta.pageName }"
                             :href="`${routeBottomNavs[0].path}/${routeBottomNav.path}`">
                             <ion-icon aria-hidden="true"

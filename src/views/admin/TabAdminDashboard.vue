@@ -17,8 +17,6 @@ const route = useRouter()
 
 const title = computed(() => route.currentRoute.value.meta.pageName as string)
 
-const members = reactive<string[]>(['1']);
-
 onIonViewDidEnter(() =>
 {
     console.log('Home page did enter schedule');
@@ -43,7 +41,7 @@ onIonViewWillLeave(() =>
     <ion-page>
         <app-header :title="title" />
         <ion-content :fullscreen="true" color="light">
-            <ion-card v-for="(member, index) in members" :key="index" color="primary"
+            <ion-card v-for="(member, index) in 10" :key="index" color="primary"
                 class="tw-mt-2 tw-mb-1 tw-mx-3 tw-bg-gradient-to-r tw-from-green-500 tw-to-pink-400">
                 <ion-card-content class="tw-py-1 tw-mt-1">
                     <ion-row class="ion-justify-content-between">
