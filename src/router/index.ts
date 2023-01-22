@@ -1,17 +1,16 @@
-import { createRouter, createWebHistory } from "@ionic/vue-router";
 import { RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from "@ionic/vue-router";
 
 import { appsOutline, peopleOutline, calendarOutline } from 'ionicons/icons';
-
-
-import HomePage from "@/views/HomePage.vue";
 
 import TabApp from "@/views/TabApp.vue";
 import TabMember from "@/views/tabs/TabMember.vue";
 import TabSchedule from "@/views/tabs/TabSchedule.vue";
 import TabDashboard from "@/views/tabs/TabDashboard.vue";
 
+import HomePage from "@/views/HomePage.vue";
 import DetailPage from "@/views/DetailPage.vue";
+import MemberDetailPage from "@/views/MemberDetailPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -68,6 +67,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "DashboardOutcome",
     component: DetailPage,
     meta: { pageName: "Pengeluaran" }
+  },
+  {
+    path: "/member/:id",
+    name: "MemberDetail",
+    component: MemberDetailPage,
+    meta: { pageName: "Member Detail" }
   }
 ];
 
