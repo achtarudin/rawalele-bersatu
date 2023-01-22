@@ -7,7 +7,7 @@ import notFoundRoute from "./route-not-found";
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes: [
-    // ...memberRoutes,
+    ...memberRoutes,
     ...adminRoutes,
     ...notFoundRoute
   ]

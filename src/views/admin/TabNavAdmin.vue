@@ -2,7 +2,7 @@
 
 import { computed } from 'vue';
 
-import { useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
 
 import { IonRow, IonCol } from '@ionic/vue';
 import { IonTabButton, IonTabs, IonTabBar } from '@ionic/vue';
@@ -11,6 +11,7 @@ import { IonIcon, IonLabel, IonPage, IonBadge, IonRouterOutlet } from '@ionic/vu
 import { albumsOutline as defaultIcon } from 'ionicons/icons';
 
 
+const route = useRoute()
 const router = useRouter()
 
 const routeBottomNavs = computed(() => router.options.routes
@@ -35,6 +36,7 @@ const afterTabChange = () =>
                     <ion-tab-bar slot="bottom">
                         <ion-tab-button v-for="(routeBottomNav, index) in routeBottomNavs[0].children ?? []"
                             :key="index" :tab="(routeBottomNav.name as string)"
+                            :class="{ 'tw-text-green-500': routeBottomNav.meta?.pageName == router.currentRoute.value.meta.pageName }"
                             :href="`${routeBottomNavs[0].path}/${routeBottomNav.path}`">
                             <ion-icon aria-hidden="true"
                                 :icon="((routeBottomNav.meta?.icon ?? defaultIcon) as string)" />

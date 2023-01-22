@@ -4,10 +4,10 @@ const { state } = useAuth();
 
 const middlewareHome = (to: any, form: any, next: any) => {
   if (state.isAuth == true) {
-    return next("admin");
+    return next("/admin");
   }
   if (state.isAuth == false) {
-    return next("tabs");
+    return next("/tabs");
   }
   return next("not-found");
 };

@@ -2,7 +2,7 @@ import { RouteRecordRaw } from "vue-router";
 
 import middlewareHome from "./middleware-home";
 
-import TabNavMember from "@/views/TabNavMember.vue";
+import TabNavMember from "@/views/member/TabNavMember.vue";
 
 import TabMember from "@/views/member/TabMember.vue";
 import TabSchedule from "@/views/member/TabSchedule.vue";
