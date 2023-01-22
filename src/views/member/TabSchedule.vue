@@ -51,9 +51,9 @@ onIonViewWillLeave(() =>
                         <ion-col size="auto">
                             <ion-row class="ion-justify-content-start">
                                 <ion-col size="auto" class="tw-mr-2 tw-p-0">
-                                    <div class="tw-flex tw-justify-between">
-                                        <div class="tw-flex tw-justify-start tw-mb-2">
-                                            <div class="tw-mr-1">
+                                    <div class="tw-mb-2">
+                                        <div class="tw-flex tw-justify-start">
+                                            <div class="tw-mr-2">
                                                 <ion-icon slot="icon-only" :icon="homeOutline" size="medium" />
                                             </div>
                                             <span class="tw-font-bold">
@@ -61,18 +61,17 @@ onIonViewWillLeave(() =>
                                             </span>
                                         </div>
                                         <div class="tw-flex tw-justify-start ">
-                                            <div class="tw-mr-1 tw-align-bottom ">
+                                            <div class="tw-mr-2">
                                                 <ion-icon slot="icon-only" :icon="todayOutline" size="medium" />
                                             </div>
                                             <span class="tw-font-normal">
                                                 22-04-2023
                                             </span>
                                         </div>
-
                                     </div>
-
+                                   
                                     <div class="tw-flex tw-justify-start">
-                                        <div>
+                                        <div class="tw-mr-2">
                                             <ion-icon slot="icon-only" :icon="locationOutline" size="medium" />
                                         </div>
                                         <span class="tw-font-light">

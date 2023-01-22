@@ -14,9 +14,7 @@ import { albumsOutline as defaultIcon } from 'ionicons/icons';
 const router = useRouter()
 
 const routeBottomNavs = computed(() => router.options.routes
-    .filter((route) => route.meta?.bottomNav == true && route.children && route.children?.length > 0))
-
-
+    .filter((route) => route.meta?.TabNavMember == true && route.children && route.children?.length > 0))
 
 const beforeTabChange = () =>
 {
@@ -43,12 +41,6 @@ const afterTabChange = () =>
                             <ion-label>{{ routeBottomNav.meta?.pageName }}</ion-label>
                             <ion-badge v-if="routeBottomNav.meta?.badge">6</ion-badge>
                         </ion-tab-button>
-
-                        <!-- <ion-tab-button tab="home" href="/tabs/home">
-                            <ion-icon :icon="calendar" aria-hidden="true"></ion-icon>
-                            <ion-label>Home</ion-label>
-                            <ion-badge>6</ion-badge>
-                        </ion-tab-button> -->
                     </ion-tab-bar>
                 </ion-tabs>
             </ion-col>

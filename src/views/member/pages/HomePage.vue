@@ -32,10 +32,10 @@
 import { IonRow, IonCol } from "@ionic/vue";
 import { IonContent, IonHeader, IonPage } from "@ionic/vue";
 import { IonToolbar, IonTitle, IonButtons, IonButton, IonIcon } from "@ionic/vue";
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from "@ionic/vue";
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle } from "@ionic/vue";
 
 import { sunnySharp, moonSharp } from 'ionicons/icons';
-import useTheme from '@/stores/theme';
+import useTheme from '../../../stores/theme';
 
 const { setTheme, theme } = useTheme()
 

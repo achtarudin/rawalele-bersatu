@@ -2,11 +2,11 @@
 import { computed } from 'vue';
 
 import { useRouter } from 'vue-router';
-import { IonRow, IonCol, IonGrid } from "@ionic/vue";
+import { IonRow, IonCol } from "@ionic/vue";
 import { IonPage, IonContent } from "@ionic/vue";
 import { IonCard, IonCardContent, IonAvatar } from "@ionic/vue";
 
-import AppHeader from '@/components/AppHeader.vue';
+import AppHeader from '../../../components/AppHeader.vue';
 
 const router = useRouter()
 
