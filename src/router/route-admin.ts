@@ -1,9 +1,11 @@
 import { RouteRecordRaw } from "vue-router";
-import { appsOutline, peopleOutline, calendarOutline } from "ionicons/icons";
+import { appsOutline, peopleOutline } from "ionicons/icons";
 
 import TabNavAdmin from "@/views/admin/TabNavAdmin.vue";
 import TabAdminMember from "@/views/admin/TabAdminMember.vue";
 import TabAdminDashboard from "@/views/admin/TabAdminDashboard.vue";
+
+import AdminMemberPage from "@/views/admin/pages/AdminMemberPage.vue";
 
 const adminRoutes: Array<RouteRecordRaw> = [
   {
@@ -23,9 +25,15 @@ const adminRoutes: Array<RouteRecordRaw> = [
         path: "member",
         name: "TabAdminMember",
         component: TabAdminMember,
-        meta: { pageName: "Member", icon: peopleOutline }
+        meta: { pageName: "Anggota", icon: peopleOutline }
       }
     ]
+  },
+  {
+    path: "/admin/member/create",
+    name: "AdminMemberPage",
+    component: AdminMemberPage,
+    meta: { pageName: "Tambah Anggota" }
   }
 ];
 

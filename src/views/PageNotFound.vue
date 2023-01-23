@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 import { IonRow, IonCol } from "@ionic/vue";
 import { IonButton, IonIcon } from "@ionic/vue";
 import { IonPage, IonContent } from "@ionic/vue";
-import { arrowBackCircleSharp, openOutline } from "ionicons/icons";
+import { arrowBackCircleSharp } from "ionicons/icons";
 
 import AppHeader from '@/components/AppHeader.vue';
 

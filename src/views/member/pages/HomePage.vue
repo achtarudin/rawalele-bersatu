@@ -39,7 +39,7 @@ import useTheme from '../../../stores/theme';
 
 const { setTheme, theme } = useTheme()
 
-const changeTheme = (e: MouseEvent) =>
+const changeTheme = () =>
 {
   setTheme(!theme.dark)
 }

@@ -4,7 +4,7 @@ const state = reactive({
   isAuth: true
 });
 
-const setAuth = () => {
+const setAuth = () : void=> {
   state.isAuth = true;
 };
 

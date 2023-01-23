@@ -37,14 +37,15 @@ const changeTheme = () =>
         <ion-toolbar>
             <ion-buttons slot="start">
                 <ion-button fill="clear" @click="onBack" v-if="clickBack">
-                    <ion-icon slot="icon-only" :icon="arrowBackOutline" size="medium"></ion-icon>
+                    <ion-icon slot="icon-only" :icon="arrowBackOutline" size="medium"
+                        :color="isAuth ? 'success' : 'primary'" />
                 </ion-button>
             </ion-buttons>
             <ion-title>{{ title ?? null}}</ion-title>
             <ion-buttons slot="end" class="tw-mr-3 ">
                 <ion-button fill="clear" @click="changeTheme">
                     <ion-icon slot="icon-only" :icon="theme.dark ? sunnySharp : moonSharp" size="small"
-                        :color="isAuth ? 'success' : 'primary' " />
+                        :color="isAuth ? 'success' : 'primary'" />
                 </ion-button>
             </ion-buttons>
         </ion-toolbar>

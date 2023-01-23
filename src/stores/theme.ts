@@ -5,7 +5,7 @@ const state = reactive({
   light: false
 });
 
-const setTheme = (valueTheme?: boolean | undefined | null) => {
+const setTheme = (valueTheme?: boolean | undefined | null): void => {
   const defaultTheme = localStorage.getItem("theme-is-dark") ?? null;
 
   let value;
@@ -16,8 +16,6 @@ const setTheme = (valueTheme?: boolean | undefined | null) => {
     value = valueTheme;
   }
 
-  
-
   if (value == true) {
     state.dark = true;
     state.light = false;
@@ -27,7 +25,6 @@ const setTheme = (valueTheme?: boolean | undefined | null) => {
     state.light = true;
     document.body.classList.remove("dark");
   }
-
 
   localStorage.setItem("theme-is-dark", state.dark ? "1" : "0");
 };

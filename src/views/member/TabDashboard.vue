@@ -19,17 +19,11 @@ const router = useRouter()
 
 const title = computed(() => router.currentRoute.value.meta.pageName as string)
 
-const detailIncome = async () =>
-{
-    await router.push({ name: 'DashboardIncome' })
-
-}
-
 const detailOutcome = async () =>
 {
     await router.push({ name: 'DashboardOutcome' })
-
 }
+
 onIonViewDidEnter(() =>
 {
     // console.log('Home page did enter home');
@@ -49,6 +43,7 @@ onIonViewWillLeave(() =>
 {
     // console.log('Home page will leave  home');
 });
+
 </script>
 <template>
     <ion-page>

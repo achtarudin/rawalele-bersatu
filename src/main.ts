@@ -3,6 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 
 import { IonicVue } from "@ionic/vue";
+import { VueFire, VueFireAuth } from "vuefire";
+import { firebaseApp } from "@/plugins/firebase";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/vue/css/core.css";
@@ -24,11 +26,18 @@ import "@ionic/vue/css/display.css";
 import "./theme/variables.css";
 import "./theme/tailwind.css";
 
-const app = createApp(App)
-  .use(IonicVue, {
-    mode: "ios"
-  })
-  .use(router);
+const app = createApp(App);
+
+app.use(IonicVue, {
+  mode: "ios"
+});
+
+app.use(router);
+
+app.use(VueFire, {
+  firebaseApp,
+  modules: [VueFireAuth()]
+});
 
 router.isReady().then(() => {
   app.mount("#app");

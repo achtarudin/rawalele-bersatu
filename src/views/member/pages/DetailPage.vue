@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
 import { IonRow, IonCol } from "@ionic/vue";
 import { IonPage, IonContent } from "@ionic/vue";
 
-import AppHeader from '../../../components/AppHeader.vue';
+import AppHeader from '@/components/AppHeader.vue';
 
 const router = useRouter()
 
