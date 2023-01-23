@@ -8,7 +8,6 @@ import { IonCard, IonCardContent, IonIcon } from "@ionic/vue";
 
 import { locationOutline, todayOutline, homeOutline } from "ionicons/icons";
 
-
 import AppHeader from '@/components/AppHeader.vue';
 
 const route = useRouter()

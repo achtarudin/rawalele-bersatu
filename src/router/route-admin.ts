@@ -6,6 +6,7 @@ import TabAdminMember from "@/views/admin/TabAdminMember.vue";
 import TabAdminDashboard from "@/views/admin/TabAdminDashboard.vue";
 
 import AdminMemberPage from "@/views/admin/pages/AdminMemberPage.vue";
+import AdminMemberDetailPage from "@/views/admin/pages/AdminMemberDetailPage.vue";
 
 const adminRoutes: Array<RouteRecordRaw> = [
   {
@@ -28,6 +29,18 @@ const adminRoutes: Array<RouteRecordRaw> = [
         meta: { pageName: "Anggota", icon: peopleOutline }
       }
     ]
+  },
+  {
+    path: "/admin/member/:id",
+    name: "AdminMemberDetailPage",
+    component: AdminMemberDetailPage,
+    meta: { pageName: "Review Anggota" }
+  },
+  {
+    path: "/admin/member/edit/:id",
+    name: "AdminMemberEditPage",
+    component: AdminMemberPage,
+    meta: { pageName: "Edit Anggota" }
   },
   {
     path: "/admin/member/create",

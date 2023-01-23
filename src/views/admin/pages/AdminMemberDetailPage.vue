@@ -1,44 +1,39 @@
 <script setup lang="ts">
-import { computed } from "vue";
 import { useRouter } from 'vue-router'
 
 import { IonRow, IonCol } from "@ionic/vue";
 import { IonContent, IonPage } from "@ionic/vue";
-import { IonFab, IonFabButton, IonButton } from "@ionic/vue";
-import { IonCard, IonCardContent, IonIcon } from "@ionic/vue";
+import { IonCard, IonCardContent, IonIcon, IonButton } from "@ionic/vue";
 
-import { useCollection } from 'vuefire'
-import memberService from '@/services/member-service'
+import { personCircleOutline, callOutline, readerOutline, locationOutline } from "ionicons/icons";
 
 import AppHeader from '@/components/AppHeader.vue';
 
-import { personCircleOutline, callOutline, add, openOutline } from "ionicons/icons";
-
+import { useDocument } from 'vuefire';
+import memberService from '@/services/member-service'
 
 const router = useRouter()
 
-const title = computed(() => router.currentRoute.value.meta.pageName as string)
+const refMember = memberService.findById(router.currentRoute.value.params.id as string);
+const { data: member } = useDocument(refMember)
 
-const members = useCollection(memberService.getAllPerPage(10, {}))
-
-const goToAdminMemberPage = async () =>
+const backToTabAdminMember = async () =>
 {
-    await router.push({ name: 'AdminMemberPage', replace: true })
+    await router.push({ name: 'TabAdminMember', replace: true })
 }
-const goToMemberDetail = async (id: string) =>
+const goToAdminMemberEditPage = async (id: string) =>
 {
-    await router.push({ name: 'AdminMemberDetailPage', replace: true, params: { id: id } })
+    await router.push({ name: 'AdminMemberEditPage', replace: true, params: { id: id } })
 }
-
 
 </script>
 
 <template>
     <ion-page>
-        <app-header :title="title" />
+        <app-header :title="member ? member.full_name : ''" :click-back="backToTabAdminMember" />
         <ion-content :fullscreen="true" color="light">
-            <ion-card v-for="(member, index) in members" :key="index" color="primary"
-                class="tw-mt-2 tw-mb-1 tw-mx-3 tw-bg-gradient-to-r tw-from-green-500 tw-to-pink-400">
+            <ion-card color="primary" v-if="member"
+                class="tw-mt-2 tw-mb-1 tw-mx-3 tw-bg-gradient-to-l tw-from-green-500 tw-to-pink-400">
                 <ion-card-content class="tw-py-1 tw-mt-1">
                     <ion-row class="ion-justify-content-between">
                         <ion-col size="10">
@@ -50,7 +45,7 @@ const goToMemberDetail = async (id: string) =>
                                                 <ion-icon slot="icon-only" :icon="personCircleOutline" size="medium" />
                                             </div>
                                             <span class="tw-font-bold">
-                                                {{ member.full_name }}
+                                                {{ member?.full_name }}
                                             </span>
                                         </div>
                                         <div class="tw-flex tw-justify-start ">
@@ -58,7 +53,15 @@ const goToMemberDetail = async (id: string) =>
                                                 <ion-icon slot="icon-only" :icon="callOutline" size="medium" />
                                             </div>
                                             <span class="tw-font-normal">
-                                                {{ member.phone_number }}
+                                                {{ member?.phone_number }}
+                                            </span>
+                                        </div>
+                                        <div class="tw-flex tw-justify-start ">
+                                            <div class="tw-mr-2">
+                                                <ion-icon slot="icon-only" :icon="locationOutline" size="medium" />
+                                            </div>
+                                            <span class="tw-font-normal">
+                                                {{ member?.address }}
                                             </span>
                                         </div>
                                     </div>
@@ -69,8 +72,8 @@ const goToMemberDetail = async (id: string) =>
                             <ion-row class="ion-justify-content-end">
                                 <div>
                                     <ion-button fill="clear" class="tw-cursor-pointer"
-                                        @click="() => goToMemberDetail(member.id)">
-                                        <ion-icon slot="icon-only" :icon="openOutline" class="tw-text-white" />
+                                        @click="() => goToAdminMemberEditPage(member?.id)">
+                                        <ion-icon slot="icon-only" :icon="readerOutline" class="tw-text-white" />
                                     </ion-button>
                                 </div>
                             </ion-row>
@@ -78,11 +81,8 @@ const goToMemberDetail = async (id: string) =>
                     </ion-row>
                 </ion-card-content>
             </ion-card>
-            <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-                <ion-fab-button color="success" @click="goToAdminMemberPage">
-                    <ion-icon :icon="add" />
-                </ion-fab-button>
-            </ion-fab>
+
         </ion-content>
     </ion-page>
+
 </template>
